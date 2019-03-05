@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  containersdemo.privateapi:
+    image: ${DOCKER_REGISTRY-}containersdemoprivateapi
+    build:
+      context: .
+      dockerfile: ContainersDemo.PrivateApi/Dockerfile
+    ports:
+      - "80:80"
+  containersdemo.publicapi:
+    image: ${DOCKER_REGISTRY-}containersdemopublicapi
+    build:
+      context: .
+      dockerfile: ContainersDemo.PublicApi/Dockerfile
+    environment:
+      - privateapi=containersdemo.privateapi
+    ports:
+      - "81:80"
+    depends_on:
+      - containersdemo.privateapi
