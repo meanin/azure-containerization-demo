@@ -18,7 +18,7 @@ namespace ContainersDemo.PublicApi.Controllers
             };
             var response = await client.GetAsync("api/values");
             var str = await response.Content.ReadAsStringAsync();
-            return str;
+            return $"{str} gathered from {Environment.GetEnvironmentVariable("HOSTNAME")}";
         }
     }
 }
