@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name:  publicapi
+spec:
+  type:  LoadBalancer
+  selector:
+    app:  publicapi
+  ports:
+  - port:  80
