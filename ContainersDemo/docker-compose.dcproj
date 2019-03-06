@@ -5,8 +5,8 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>64e61da8-133e-498b-8e6a-c85d62f99761</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/api/values</DockerServiceUrl>
-    <DockerServiceName>containersdemo.privateapi</DockerServiceName>
+    <DockerServiceUrl>{Scheme}://localhost/api/values</DockerServiceUrl>
+    <DockerServiceName>containersdemo.publicapi</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
     <None Include="docker-compose.yml" />
