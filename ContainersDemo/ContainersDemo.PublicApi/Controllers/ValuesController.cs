@@ -9,18 +9,14 @@ namespace ContainersDemo.PublicApi.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        private readonly HttpClient _client;
-
-        public ValuesController(HttpClient client)
-        {
-            _client = client;
-        }
-
         [HttpGet]
         public async Task<ActionResult<string>> Get()
         {
-            _client.BaseAddress = new Uri($"http://{Environment.GetEnvironmentVariable("privateapi")}");
-            var response = await _client.GetAsync("api/values");
+            var client = new HttpClient
+            {
+                BaseAddress = new Uri($"http://{Environment.GetEnvironmentVariable("privateapi")}")
+            };
+            var response = await client.GetAsync("api/values");
             var str = await response.Content.ReadAsStringAsync();
             return str;
         }

@@ -26,7 +26,6 @@ namespace ContainersDemo.PublicApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHealthChecks();
-            services.AddSingleton(typeof(HttpClient));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
